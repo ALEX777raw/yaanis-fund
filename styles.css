@@ -8614,6 +8614,26 @@ body::after {
   transform: translateY(0);
 }
 
+/* Status Badges Row */
+.status-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  .status-badges-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .status-badges-row .status-badge {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* Steps Grid */
 .steps-grid {
   position: relative;

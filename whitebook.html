@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Белая Книга — ЯАНИС</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(180deg, #f0f4f8 0%, #e8eef5 100%);
+      min-height: 100vh;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    img, a {
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    .protected-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 30px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 40px;
+      transition: color 0.3s;
+      pointer-events: auto;
+    }
+
+    .back-link:hover {
+      color: #374151;
+    }
+
+    .back-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #6b7280;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #374151;
+      margin: 35px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(156, 163, 175, 0.3);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #4b5563;
+      margin: 25px 0 12px;
+    }
+
+    p {
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    .summary-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+      border-left: 4px solid #6366f1;
+      padding: 20px 25px;
+      border-radius: 0 12px 12px 0;
+      margin: 25px 0;
+    }
+
+    .summary-box p {
+      margin-bottom: 0;
+      font-size: 1.02rem;
+    }
+
+    ul {
+      padding-left: 25px;
+      margin-bottom: 16px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    ul li::marker {
+      color: #6366f1;
+    }
+
+    .section-box {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+      padding: 22px;
+      margin: 20px 0;
+    }
+
+    .highlight {
+      background: rgba(99, 102, 241, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .phase-box {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin: 12px 0;
+      border-left: 3px solid #6366f1;
+    }
+
+    .phase-box strong {
+      color: #4b5563;
+    }
+
+    .phase-completed {
+      border-left-color: #10b981;
+    }
+
+    .phase-progress {
+      border-left-color: #f59e0b;
+    }
+
+    .divider {
+      text-align: center;
+      color: #9ca3af;
+      margin: 30px 0;
+      font-size: 0.9rem;
+    }
+
+    .conclusion-box {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(34, 197, 94, 0.08) 100%);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px 0;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 5rem;
+      color: rgba(156, 163, 175, 0.06);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    .screenshot-warning {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .screenshot-warning.active {
+      display: flex;
+    }
+
+    .screenshot-warning h2 {
+      color: #f59e0b;
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    .screenshot-warning p {
+      color: #9ca3af;
+      max-width: 400px;
+    }
+
+    .blurred .content-wrapper {
+      filter: blur(20px);
+      transition: filter 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .protected-content {
+        padding: 40px 20px;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      h2 {
+        font-size: 1.35rem;
+        margin: 28px 0 15px;
+      }
+
+      .watermark {
+        font-size: 3rem;
+      }
+
+      .section-box {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .protected-content {
+        padding: 30px 15px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+        line-height: 1.4;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+        margin: 22px 0 12px;
+      }
+
+      p {
+        font-size: 0.95rem;
+        text-align: left;
+      }
+
+      .watermark {
+        font-size: 2rem;
+      }
+
+      .back-link {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+      }
+
+      .section-box {
+        padding: 15px;
+      }
+
+      .summary-box {
+        padding: 15px 18px;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .protected-content {
+        padding: 25px 12px;
+      }
+
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      .watermark {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="watermark">ЯАНИС</div>
+
+  <div class="screenshot-warning" id="screenshotWarning">
+    <h2>Копирование запрещено</h2>
+    <p>Данный материал защищён авторским правом. Копирование, скриншоты и распространение запрещены.</p>
+  </div>
+
+  <div class="protected-content">
+    <div class="content-wrapper">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Вернуться на главную
+      </a>
+
+      <h1>Белая Книга проекта «Яанис»</h1>
+      <p class="subtitle">НТО СВО</p>
+
+      <div class="summary-box">
+        <p>Проект «Яанис» — цифровая экосистема (Сайт, Мобильное приложение, Telegram-бот), созданная фондом «Яанис» для масштабной реабилитации бывших и действующих участников СВО с помощью Искусственного Интеллекта (ИИ), обученного на уникальных методиках клинических и военных психологов. Пользователи получают небольшое вознаграждение за прохождение каждого урока, что значительно повышает мотивацию к системной реабилитации. Цель — обеспечить масштабируемую, экономичную и доказательно-обоснованную альтернативу/дополнение очной психотерапии, утверждённую и внедряемую на базе методик, проходящих процедуру утверждения в Министерстве Обороны РФ.</p>
+      </div>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>1. Проблема</h2>
+      <ul>
+        <li>По результатам наших исследований, <span class="highlight">~90% бойцов</span> после участия в боевых действиях имеют психологические травмы и расстройства; большинство из них не осознаёт необходимости помощи.</li>
+        <li>Традиционные очные психологические услуги ограничены ресурсами: недостаток клинических психологов, стигма обращения, нежелание добровольно посещать психолога.</li>
+        <li>Необходима массовая, доступная, полностью автоматизированная система, адаптированная под специфику боевого опыта и одобренная военными и клиническими экспертами.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>2. Цель проекта</h2>
+      <ul>
+        <li>Массовая реабилитация участников СВО путём внедрения технологической платформы, основанной на методиках, разработанных клиническими и военными психологами и проходящих утверждение в Министерстве Обороны РФ.</li>
+        <li>Обеспечение высокой мотивации к прохождению курсов через финансовые стимулы (вознаграждение за уроки).</li>
+        <li>Разработка ИИ-модуля, который переводит клинические алгоритмы в программный код и обеспечивает стандартизированную, персонализированную поддержку большого числа пользователей.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>3. Целевая аудитория</h2>
+      <ul>
+        <li>Бывшие и действующие участники СВО;</li>
+        <li>Близкие и опекуны (для поддержки и вовлечения);</li>
+        <li>Медицинские и военные учреждения при кооперации для масштабирования и мониторинга.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>4. Уникальность и конкурентные преимущества</h2>
+      <div class="section-box">
+        <ul>
+          <li><strong>Уникальная методика реабилитации</strong>, разработанная совместно клиническими и военными психологами и проходящая утверждение в Минобороны РФ.</li>
+          <li><strong>Инновационная мотивационная модель:</strong> вознаграждение за каждый пройденный урок, адаптированная на основе поведенческой науки и эмпирики с целевой аудиторией, которая в целом избегает обращения к психологам.</li>
+          <li><strong>Технология перевода языка психолога в код:</strong> программисты формализуют методики в виде модулей ИИ, обеспечивая воспроизводимость и масштабируемость.</li>
+          <li><strong>Постоянная работа клинических психологов</strong>, многие из которых базируются в зоне СВО и вносят оперативные коррективы в методики.</li>
+          <li><strong>Нигде в мире</strong> в текущем виде нет комбинации: военные/клинические методики + ИИ-модуль + система вознаграждений для бойцов.</li>
+        </ul>
+      </div>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>5. Продукт и функциональность</h2>
+      <h3>Мобильное приложение + Telegram-бот:</h3>
+      <ul>
+        <li>Персонализированные учебные курсы и реабилитационные модули;</li>
+        <li>Короткие уроки (микро-обучение) с наградами после прохождения;</li>
+        <li>Диагностические чек-листы и периодические оценки состояния;</li>
+        <li>Автоматизированные сессии ИИ (практики, навигация по методике, тренировки навыков);</li>
+        <li>Механизмы эскалации: при выявлении тяжёлой патологии — перевод к очному специалисту;</li>
+        <li>Инструменты аналитики для клиников и Минобороны (агрегированные, анонимизированные данные).</li>
+      </ul>
+
+      <h3>Система оплаты:</h3>
+      <p>Микровыплаты за каждый завершённый урок; прозрачный кошелёк в приложении; возможность интеграции с государственными схемами выплат.</p>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>6. Методология и клиническая база</h2>
+      <ul>
+        <li>Методики разработаны клиническими и военными психологами и находятся на согласовании в Министерстве Обороны РФ.</li>
+        <li>Методики описывают последовательные процедуры диагностики, коррекции травм и практики стабилизации, адаптированные под реальный опыт бойцов.</li>
+        <li>ИИ-модуль реализует методику в виде формализованных сценариев, упражнений и алгоритмов персонализации.</li>
+        <li>Проект предполагает постоянное клинико-научное сопровождение: терапевты отслеживают эффективность, вносят правки и обновляют модели.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>7. Технологическая архитектура</h2>
+      <h3>Модуль ИИ:</h3>
+      <ul>
+        <li>Модель персонализации: профиль пользователя, история прохождения, реактивность на упражнения;</li>
+        <li>Диагностические алгоритмы (скрининг, мониторинг симптомов);</li>
+        <li>Контентный движок: генерация/подбор учебных уроков из библиотек утверждённых методик;</li>
+        <li>Правила эскалации и контроля безопасности.</li>
+      </ul>
+
+      <h3>Интеграции:</h3>
+      <ul>
+        <li>Телеграм-бот + мобильное приложение (Android/iOS);</li>
+        <li>Платежный шлюз для выплат вознаграждений;</li>
+        <li>Портал для клинических специалистов и отчетности для заинтересованных государственных органов.</li>
+      </ul>
+
+      <h3>Безопасность и приватность:</h3>
+      <ul>
+        <li>Шифрование данных в покое и при передаче;</li>
+        <li>Анонимизация и агрегирование данных для исследований;</li>
+        <li>Соответствие требованиям регуляторов по защите персональных данных.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>8. Этика, юридическая и регуляторная ответственность</h2>
+      <ul>
+        <li>Проект работает только на основе методик, утверждённых Министерством Обороны и под контролем клинических психологов.</li>
+        <li>ИИ не заменяет экстренную помощь: предусмотрены механизмы немедленного перевода на специалиста, при риске для жизни.</li>
+        <li>Планируется юридическая экспертиза на предмет статуса ИИ как инструмента медицинской помощи и соблюдение медико-правовых требований РФ.</li>
+        <li>Конфиденциальность пользователей и добровольное согласие — ключевые принципы.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>9. Мотивационная модель и вовлечение</h2>
+      <ul>
+        <li>Вознаграждение за каждый пройденный урок (микроплатежи), что снимает барьер «не хочу ходить к психологу».</li>
+        <li>Игровая механика прогрессии: уровни, бейджи, напоминания, адаптивный расписной план.</li>
+        <li>Интеграция с сообществами бойцов и ветеранов для партнерской поддержки.</li>
+        <li>Постоянный UX-анализ и тестирование мотивационных стимулов в полевых условиях.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>10. Научная проверка и мониторинг эффективности</h2>
+      <ul>
+        <li>Пилотные исследования на группе бойцов вернувшихся из зоны СВО; непрерывный сбор данных о клинических индикаторах.</li>
+      </ul>
+
+      <h3>KPI проекта:</h3>
+      <ul>
+        <li>Доля вовлечённых пользователей (DAU/MAU среди целевой группы);</li>
+        <li>Коэффициент завершения курсов;</li>
+        <li>Изменение клинических шкал (до/после) по PTSD, тревоге, депрессии;</li>
+        <li>Уровень эскалации к офлайн-специалистам;</li>
+        <li>Затраты на одного пролеченного пользователя и экономия для бюджета здравоохранения/военной медицины, МВД.</li>
+      </ul>
+
+      <p>Построение RCT и квази-экспериментов для доказательной базы в долгосрочной перспективе.</p>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>11. Финансовая модель и источники финансирования</h2>
+      <p><strong>Основной источник финансирования:</strong> государственное финансирование / государственные контракты и гранты (Минобороны, Минздрав, фонды социальной реабилитации).</p>
+
+      <h3>Дополнительные источники:</h3>
+      <ul>
+        <li>Благотворительные фонды и международные гранты (при необходимости);</li>
+        <li>Корпоративные партнёры / технологические гранты;</li>
+        <li>Лимитированные коммерческие продажи / лицензирование модуля для профильных учреждений (после утверждения).</li>
+      </ul>
+
+      <h3>Структура затрат:</h3>
+      <ul>
+        <li>Разработка и поддержка платформы и ИИ;</li>
+        <li>Клинические исследования и проверка;</li>
+        <li>Оплата работы клинических специалистов и тренеров;</li>
+        <li>Выплаты пользователям (вознаграждения);</li>
+        <li>Операционные расходы и информационная безопасность.</li>
+      </ul>
+
+      <p><strong>Экономический аргумент:</strong> значительная экономия за счёт сокращения необходимости дорогостоящих очных вмешательств и ускорения реинтеграции бойцов в трудоспособное состояние.</p>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>12. План внедрения (дорожная карта)</h2>
+
+      <div class="phase-box phase-completed">
+        <strong>Фаза 0: Подготовка (0-3 мес)</strong> — Фаза исполнена.<br>
+        Получение и интеграция методик (Методики НТО). Формирование команды разработчиков, клинических экспертов и проект-менеджеров.
+      </div>
+
+      <div class="phase-box phase-completed">
+        <strong>Фаза 1: Пилот (3-9 мес)</strong> — Фаза исполнена.<br>
+        MVP приложения и Telegram-бота. Пилотная группа бойцов, сбор данных, начальная корректировка мотивационных механик.
+      </div>
+
+      <div class="phase-box phase-progress">
+        <strong>Фаза 2: Клиническая валидация (9-18 мес)</strong> — Фаза в разработке.<br>
+        Проведение исследований, подготовка отчётов для Минобороны и профильных регулирующих органов.
+      </div>
+
+      <div class="phase-box">
+        <strong>Фаза 3: Масштабирование (18-36 мес)</strong><br>
+        Интеграция с государственными службами, расширение аудитории, получение гос заказа на выполнение данной работы.
+      </div>
+
+      <div class="phase-box">
+        <strong>Фаза 4: Постоянное совершенствование</strong><br>
+        Ежегодные обновления методик, модель непрерывного обучения ИИ на новых данных (с контролем экспертов).
+      </div>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>13. Риски и меры смягчения</h2>
+      <ul>
+        <li><strong>Регуляторные риски:</strong> тесная работа с Минобороны/Минздрав, адаптация к требованиям.</li>
+        <li><strong>Этические и клинические риски:</strong> обязательная эскалация и наблюдение клиницистов; пилотные исследования.</li>
+        <li><strong>Технологические риски:</strong> обеспечение отказоустойчивости, защита данных.</li>
+        <li><strong>Социальные риски (стигма):</strong> конфиденциальность, анонимизация, мягкая коммуникация и мотивация.</li>
+        <li><strong>Финансовые риски:</strong> диверсификация источников финансирования, доказывание экономической эффективности.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>14. Показатели успеха (KPI)</h2>
+      <ul>
+        <li>Процент целевой группы, начавшей курс (через 12 мес после запуска).</li>
+        <li>Коэффициент завершённых курсов.</li>
+        <li>Изменение средних значений по клиническим шкалам PTSD/депрессии/тревоги.</li>
+        <li>Средняя экономия на пациента по сравнению с традиционной терапией.</li>
+        <li>Количество интеграций с госструктурами и выделенное финансирование.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <h2>15. Запрос к государственным органам и партнёрам</h2>
+      <ul>
+        <li>Финансирование пилотных и исследовательских фаз.</li>
+        <li>Поддержка утверждения методик и нормативное сопровождение.</li>
+        <li>Содействие в доступе к целевой аудитории (волонтёрские корпуса, военные госпитали, ветеранские отделы).</li>
+        <li>Партнёрство в масштабировании и внедрении в систему военно-медицинской помощи.</li>
+      </ul>
+
+      <div class="divider">― ― ―</div>
+
+      <div class="conclusion-box">
+        <h2 style="margin-top: 0; border: none;">Заключение</h2>
+        <p style="margin-bottom: 0;">Проект «Яанис» предлагает уникальное сочетание утверждённых военных/клинических методик и технологического ИИ-решения для массовой реабилитации участников СВО. Модель вознаграждений и постоянная клиническая поддержка делают проект практически реализуемым и потенциально экономически выгодным для государства.</p>
+      </div>
+
+      <p style="text-align: center; color: #9ca3af; margin-top: 50px;">
+        © ЯАНИС — Благотворительный фонд развития и поддержки самообразования
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener('cut', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && (e.key === 'c' || e.key === 'C' ||
+                        e.key === 'x' || e.key === 'X' ||
+                        e.key === 'u' || e.key === 'U' ||
+                        e.key === 's' || e.key === 'S' ||
+                        e.key === 'p' || e.key === 'P' ||
+                        e.key === 'a' || e.key === 'A')) {
+        e.preventDefault();
+        return false;
+      }
+
+      if (e.key === 'PrintScreen') {
+        e.preventDefault();
+        document.getElementById('screenshotWarning').classList.add('active');
+        setTimeout(function() {
+          document.getElementById('screenshotWarning').classList.remove('active');
+        }, 3000);
+        return false;
+      }
+
+      if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    document.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        document.body.classList.add('blurred');
+      } else {
+        setTimeout(function() {
+          document.body.classList.remove('blurred');
+        }, 500);
+      }
+    });
+
+    document.addEventListener('touchstart', function(e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    let touchTimer;
+    document.addEventListener('touchstart', function(e) {
+      touchTimer = setTimeout(function() {
+        e.preventDefault();
+      }, 500);
+    }, { passive: false });
+
+    document.addEventListener('touchend', function() {
+      clearTimeout(touchTimer);
+    });
+
+    document.addEventListener('touchmove', function() {
+      clearTimeout(touchTimer);
+    });
+
+    document.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+  </script>
+</body>
+</html>
