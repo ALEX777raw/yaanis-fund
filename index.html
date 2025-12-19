@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ЯАНИС — Благотворительный фонд</title>
+    <meta name="description" content="ЯАНИС — благотворительный фонд развития и поддержки самообразования." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&subset=cyrillic,cyrillic-ext&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="103f0086-2f05-4e68-8c9c-33c244d558e1.png" fetchpriority="high">
+    <link rel="preload" as="image" href="Cut_everything_out_202512112005.jpeg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Loader -->
+    <div class="loader" id="loader" role="status" aria-label="Загрузка">
+      <div class="loader__panel">
+        <div class="loader__brand">
+          <div class="loader__logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L18 8L12 22L6 8L12 2Z"></path>
+              <path d="M12 2V22"></path>
+            </svg>
+          </div>
+          <div class="loader__title">ЯАНИС</div>
+        </div>
+        <div class="loader__subtitle">Открываем облачное пространство</div>
+        <div class="loader__bar" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <span class="logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L18 8L12 22L6 8L12 2Z"/><path d="M12 2V22"/></svg>
+          </span>
+          <span>ЯАНИС</span>
+        </a>
+
+        <nav class="nav">
+          <a href="#about" class="nav-link">О фонде</a>
+          <a href="#nto" class="nav-link">Самообразование</a>
+          <a href="#motivation" class="nav-link">Мотивация</a>
+          <a href="#svo" class="nav-link">Участникам СВО</a>
+          <a href="#contact" class="nav-link">Контакты</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="https://t.me/n_t_oA" target="_blank" rel="noopener noreferrer" class="btn">Новости</a>
+          <a href="https://t.me/ntoA_bot" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Начать</a>
+        </div>
+
+        <button class="burger" aria-label="Меню">
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Hero Section -->
+      <section class="hero" id="hero">
+        <div class="hero-scene">
+          <div class="hero-bg"></div>
+          <img class="hero-sky" src="Cut_everything_out_202512112005.jpeg" alt="" width="1920" height="1080" aria-hidden="true" decoding="async">
+          <div class="hero-glow"></div>
+          <!-- Светящиеся блики -->
+          <div class="glowing-orbs">
+            <div class="orb orb--1"></div>
+            <div class="orb orb--2"></div>
+            <div class="orb orb--3"></div>
+            <div class="orb orb--4"></div>
+            <div class="orb orb--5"></div>
+          </div>
+          <img class="hero-crystal" src="103f0086-2f05-4e68-8c9c-33c244d558e1.png" alt="" width="600" height="900" decoding="async" fetchpriority="high">
+        </div>
+        <div class="hero-title-wrapper hero-title-wrapper--above">
+          <h1 class="hero-title hero-title--small">ЯАНИС</h1>
+          <p class="hero-subtitle">Благотворительный фонд развития и поддержки самообразования</p>
+        </div>
+
+        <!-- Platform Icons -->
+        <div class="platforms">
+          <a href="#nto" class="platform platform--1">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0284.PNG" alt="" width="300" height="300">
+              <span class="platform__label">НТО</span>
+            </div>
+          </a>
+          <a href="#motivation" class="platform platform--2">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0285.PNG" alt="" width="300" height="300">
+              <span class="platform__label">Мотивация</span>
+            </div>
+          </a>
+          <a href="#about" class="platform platform--3">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0287.PNG" alt="" width="300" height="300">
+              <span class="platform__label">О фонде</span>
+            </div>
+          </a>
+          <a href="#svo" class="platform platform--4">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0283.PNG" alt="" width="300" height="300">
+              <span class="platform__label">СВО</span>
+            </div>
+          </a>
+          <a href="https://t.me/ntoA_bot" target="_blank" rel="noopener noreferrer" class="platform platform--5">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0286.PNG" alt="" width="300" height="300">
+              <span class="platform__label">Telegram</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Sound Enable Banner -->
+      <div class="sound-enable-banner" id="soundBanner">
+        <div class="sound-enable-content">
+          <svg class="sound-enable-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+          <span class="sound-enable-text">Нажмите чтобы включить звук видео</span>
+          <button class="sound-enable-btn" id="enableSoundBtn">
+            <span>Включить звук</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Info Cards Section -->
+      <section class="info-cards-section">
+        <div class="info-cards-container">
+          <div class="info-card">
+            <div class="info-card__image">
+              <img src="Gemini_Generated_Image_2o1dnm2o1dnm2o1d.jpg" alt="О фонде">
+            </div>
+            <div class="info-card__content">
+              <h3 class="info-card__title">О фонде</h3>
+              <p class="info-card__text">Благотворительный фонд развития и поддержки самообразования.</p>
+              <a href="#about" class="info-card__link">
+                <span class="info-card__dot"></span>
+                <span>Далее</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card__image">
+              <img src="Gemini_Generated_Image_8s2lg58s2lg58s2l.jpg" alt="Мотивируем к самообразованию">
+            </div>
+            <div class="info-card__content">
+              <h3 class="info-card__title">Мотивируем к самообразованию</h3>
+              <p class="info-card__text">Изучай материал из дома и получай вознаграждение.</p>
+              <a href="#motivation" class="info-card__link">
+                <span class="info-card__dot"></span>
+                <span>Далее</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card__image">
+              <img src="Gemini_Generated_Image_nm7xtvnm7xtvnm7x.jpg" alt="Как это работает">
+            </div>
+            <div class="info-card__content">
+              <h3 class="info-card__title">Как это работает</h3>
+              <p class="info-card__text">Пройдите анкету, чтобы узнать о вашей миссии.</p>
+              <a href="#nto" class="info-card__link">
+                <span class="info-card__dot"></span>
+                <span>Далее</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card__image">
+              <img src="Gemini_Generated_Image_x9jrp1x9jrp1x9jr.jpg" alt="Учитесь и получайте">
+            </div>
+            <div class="info-card__content">
+              <h3 class="info-card__title">Учитесь и получайте</h3>
+              <p class="info-card__text">Уникальная возможность развиваться с вознаграждением.</p>
+              <a href="#svo" class="info-card__link">
+                <span class="info-card__dot"></span>
+                <span>Далее</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Sections -->
+      <div class="content-sections">
+
+        <!-- Decorative divider 1 -->
+        <div class="section-divider" aria-hidden="true">
+          <svg class="divider-svg" viewBox="0 0 400 60" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="transparent"/>
+                <stop offset="30%" stop-color="#9ca3af" stop-opacity="0.4"/>
+                <stop offset="50%" stop-color="#9ca3af" stop-opacity="0.6"/>
+                <stop offset="70%" stop-color="#9ca3af" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </linearGradient>
+            </defs>
+            <!-- Decorative lines -->
+            <line x1="40" y1="30" x2="170" y2="30" stroke="url(#lineGrad)" stroke-width="1"/>
+            <line x1="230" y1="30" x2="360" y2="30" stroke="url(#lineGrad)" stroke-width="1"/>
+            <!-- Center crystal -->
+            <path d="M200 15 L215 30 L200 45 L185 30 Z" fill="none" stroke="#9ca3af" stroke-width="1.5" opacity="0.6"/>
+            <path d="M200 20 L210 30 L200 40 L190 30 Z" fill="#9ca3af" opacity="0.2"/>
+            <!-- Small decorative dots -->
+            <circle cx="175" cy="30" r="2" fill="#9ca3af" opacity="0.4"/>
+            <circle cx="225" cy="30" r="2" fill="#9ca3af" opacity="0.4"/>
+          </svg>
+        </div>
+
+        <!-- Block 1: О фонде - Two columns -->
+        <section class="section-block" id="about">
+          <div class="section-block__number">01</div>
+          <div class="section-block__grid section-block__grid--two">
+            <div class="media-card">
+              <div class="media-card__label">О нас</div>
+              <div class="media-card__video">
+                <video autoplay muted playsinline>
+                  <source src="Prompt_abstract_cinematic_1080p_202512191626.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="media-card__title">ЯАНИС</div>
+              <div class="media-card__subtitle">Благотворительный фонд</div>
+            </div>
+            <div class="section-block__info">
+              <h2 class="section-block__heading">Развитие через <span class="text-accent">самообразование</span></h2>
+              <p class="section-block__accent">Создаём условия для стремления к знаниям!</p>
+              <p class="section-block__text">Благотворительный фонд ЯАНИС развивает принципы удалённого домашнего самообразования и самомотивации через современные технологии.</p>
+              <p class="section-block__text">Мы создаём условия, при которых стремление к знаниям поддерживается понятной системой обучения и вознаграждением за изученный материал.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Decorative divider 2 - Star pattern -->
+        <div class="section-divider" aria-hidden="true">
+          <svg class="divider-svg" viewBox="0 0 400 60" preserveAspectRatio="xMidYMid meet">
+            <line x1="40" y1="30" x2="180" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <line x1="220" y1="30" x2="360" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <!-- Star -->
+            <path d="M200 12 L204 24 L216 24 L206 32 L210 44 L200 36 L190 44 L194 32 L184 24 L196 24 Z" fill="#9ca3af" opacity="0.25"/>
+            <path d="M200 12 L204 24 L216 24 L206 32 L210 44 L200 36 L190 44 L194 32 L184 24 L196 24 Z" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.5"/>
+          </svg>
+        </div>
+
+        <!-- Block 2: НТО - Reversed with feature box -->
+        <section class="section-block section-block--alt" id="nto">
+          <div class="section-block__number">02</div>
+          <div class="section-block__grid section-block__grid--two section-block__grid--reverse">
+            <div class="media-card media-card--large">
+              <div class="media-card__label media-card__label--gold">Продукт</div>
+              <div class="media-card__video">
+                <video autoplay muted playsinline>
+                  <source src="Abstract_cinematic_background_1080p_20251219 (1).mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="media-card__title">НТО</div>
+              <div class="media-card__subtitle">Новая Технология Обучения</div>
+            </div>
+            <div class="section-block__info">
+              <h2 class="section-block__heading"><span class="text-accent">Самообразование</span> нового поколения</h2>
+              <p class="section-block__text"><strong>Наш продукт — НТО (Новая Технология Обучения).</strong></p>
+              <p class="section-block__text">Представленная система обучения уникальна по своей природе и основана на технологии машинного разума.</p>
+              <div class="feature-box">
+                <div class="feature-box__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="feature-box__content">
+                  <div class="feature-box__title">Персональный подбор</div>
+                  <div class="feature-box__text">Система учитывает возраст, пол, род занятий и другие параметры</div>
+                </div>
+              </div>
+              <a href="https://t.me/ntoA_bot" class="btn-accent">+ начать обучение</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Decorative divider 3 - Triple dots -->
+        <div class="section-divider" aria-hidden="true">
+          <svg class="divider-svg" viewBox="0 0 400 60" preserveAspectRatio="xMidYMid meet">
+            <line x1="40" y1="30" x2="175" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <line x1="225" y1="30" x2="360" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <!-- Triple dots -->
+            <circle cx="185" cy="30" r="3" fill="#9ca3af" opacity="0.4"/>
+            <circle cx="200" cy="30" r="5" fill="#9ca3af" opacity="0.5"/>
+            <circle cx="215" cy="30" r="3" fill="#9ca3af" opacity="0.4"/>
+          </svg>
+        </div>
+
+        <!-- Block 3: Схема - Full width steps -->
+        <section class="section-block" id="scheme">
+          <div class="section-block__number">03</div>
+          <div class="section-block__header">
+            <h2 class="section-block__heading section-block__heading--center">Как это <span class="text-accent">работает</span></h2>
+            <p class="section-block__subheading">Простая схема из 8 шагов</p>
+          </div>
+          <div class="steps-grid">
+            <div class="step-card">
+              <span class="step-card__num">1</span>
+              <span class="step-card__text">Регистрация</span>
+            </div>
+            <div class="step-card">
+              <span class="step-card__num">2</span>
+              <span class="step-card__text">Опросник</span>
+            </div>
+            <div class="step-card">
+              <span class="step-card__num">3</span>
+              <span class="step-card__text">Задания</span>
+            </div>
+            <div class="step-card">
+              <span class="step-card__num">4</span>
+              <span class="step-card__text">Изучение</span>
+            </div>
+            <div class="step-card">
+              <span class="step-card__num">5</span>
+              <span class="step-card__text">Голосовой отчёт</span>
+            </div>
+            <div class="step-card">
+              <span class="step-card__num">6</span>
+              <span class="step-card__text">Проверка</span>
+            </div>
+            <div class="step-card">
+              <span class="step-card__num">7</span>
+              <span class="step-card__text">Начисление</span>
+            </div>
+            <div class="step-card step-card--accent">
+              <span class="step-card__num">8</span>
+              <span class="step-card__text">Вывод на карту</span>
+            </div>
+          </div>
+          <div class="section-block__video-bg">
+            <video autoplay muted playsinline>
+              <source src="Abstract_cinematic_background_1080p_20251219 (2).mp4" type="video/mp4">
+            </video>
+          </div>
+        </section>
+
+        <!-- Decorative divider 4 - Infinity -->
+        <div class="section-divider" aria-hidden="true">
+          <svg class="divider-svg" viewBox="0 0 400 60" preserveAspectRatio="xMidYMid meet">
+            <line x1="40" y1="30" x2="160" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <line x1="240" y1="30" x2="360" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <!-- Infinity symbol -->
+            <path d="M175 30 C175 22, 185 18, 195 22 C205 26, 205 34, 195 38 C185 42, 175 38, 175 30 M225 30 C225 38, 215 42, 205 38 C195 34, 195 26, 205 22 C215 18, 225 22, 225 30" fill="none" stroke="#9ca3af" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+        </div>
+
+        <!-- Block 4: Мотивация - Image card style -->
+        <section class="section-block section-block--alt" id="motivation">
+          <div class="section-block__number">04</div>
+          <div class="section-block__grid section-block__grid--two">
+            <div class="media-card">
+              <div class="media-card__label">Формат</div>
+              <div class="media-card__video">
+                <video autoplay muted playsinline>
+                  <source src="облака и на них дом.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="media-card__title">Дома</div>
+              <div class="media-card__subtitle">В удобное время</div>
+            </div>
+            <div class="section-block__info">
+              <h2 class="section-block__heading">Домашнее <span class="text-accent">самообразование</span></h2>
+              <p class="section-block__text">Формат обучения построен так, чтобы заниматься можно было дома, в удобное время и в спокойном темпе.</p>
+              <p class="section-block__text">Система подбирает материалы под человека, а вознаграждение помогает закрепить привычку учиться регулярно.</p>
+              <div class="highlight-box">
+                <span class="highlight-box__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </span>
+                <span class="highlight-box__text">Вознаграждение за изученный материал</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Decorative divider 5 - Arrows -->
+        <div class="section-divider" aria-hidden="true">
+          <svg class="divider-svg" viewBox="0 0 400 60" preserveAspectRatio="xMidYMid meet">
+            <line x1="40" y1="30" x2="170" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <line x1="230" y1="30" x2="360" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <!-- Chevron arrows -->
+            <path d="M185 22 L200 30 L185 38" fill="none" stroke="#9ca3af" stroke-width="1.5" opacity="0.5"/>
+            <path d="M195 22 L210 30 L195 38" fill="none" stroke="#9ca3af" stroke-width="1.5" opacity="0.4"/>
+            <path d="M205 22 L220 30 L205 38" fill="none" stroke="#9ca3af" stroke-width="1.5" opacity="0.3"/>
+          </svg>
+        </div>
+
+        <!-- Block 5: СВО - Special styling -->
+        <section class="section-block" id="svo">
+          <div class="section-block__number">05</div>
+          <div class="section-block__grid section-block__grid--two section-block__grid--reverse">
+            <div class="media-card media-card--special">
+              <div class="media-card__label media-card__label--special">Программа</div>
+              <div class="media-card__video">
+                <video autoplay muted playsinline>
+                  <source src="Prompt_abstract_cinematic_202512082155.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="media-card__title">СВО</div>
+              <div class="media-card__subtitle">Реабилитация</div>
+            </div>
+            <div class="section-block__info">
+              <h2 class="section-block__heading">Реабилитация <span class="text-accent">участников СВО</span></h2>
+              <p class="section-block__text">Удалённая психологическая помощь для участников специальной военной операции.</p>
+              <p class="section-block__text">Уникальность программы — участие клинических психологов, работа с ПТСР. Курс проходит полностью автономно.</p>
+              <div class="status-badge">
+                <span class="status-badge__dot"></span>
+                <span class="status-badge__text">Модуль в разработке</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Decorative divider 6 - Heart/Connection -->
+        <div class="section-divider" aria-hidden="true">
+          <svg class="divider-svg" viewBox="0 0 400 60" preserveAspectRatio="xMidYMid meet">
+            <line x1="40" y1="30" x2="175" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <line x1="225" y1="30" x2="360" y2="30" stroke="#9ca3af" stroke-width="1" opacity="0.3"/>
+            <!-- Decorative circles -->
+            <circle cx="185" cy="30" r="4" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.4"/>
+            <circle cx="200" cy="30" r="6" fill="none" stroke="#9ca3af" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="200" cy="30" r="3" fill="#9ca3af" opacity="0.3"/>
+            <circle cx="215" cy="30" r="4" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.4"/>
+          </svg>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="section-block section-block--contact" id="contact">
+          <div class="section-block__number">06</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h2 class="contact-card__title">Связаться с нами</h2>
+              <p class="contact-card__domain">
+                <a href="https://яанис.рф" target="_blank" rel="noopener noreferrer">Яанис.рф</a>
+              </p>
+              <p class="contact-card__text">Телеграм-бот для начала обучения и новости НТО</p>
+              <div class="contact-card__buttons">
+                <a href="https://t.me/n_t_oA" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Новости НТО</a>
+                <a href="https://t.me/ntoA_bot" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Telegram-бот</a>
+              </div>
+            </div>
+            <div class="contact-qr">
+              <img src="qr-yaanis.png" alt="QR-код" width="200" height="200">
+              <span class="contact-qr__label">Сканируйте для перехода</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Angel Cursor -->
+    <div class="angel-cursor" aria-hidden="true">
+      <div class="angel-cursor__glow"></div>
+      <div class="angel-cursor__wings"></div>
+      <div class="angel-cursor__halo"></div>
+      <div class="angel-cursor__dot"></div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

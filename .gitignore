@@ -1,0 +1,10 @@
+# Backup files
+*.bak*
+
+# System files
+nul
+.DS_Store
+Thumbs.db
+
+# Claude plans
+.claude/
