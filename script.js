@@ -529,104 +529,35 @@
   setupCloudReveal();
 
   // ============================================
-  // VIDEO AUDIO CONTROL ON SCROLL
+  // VIDEO AUTOPLAY ON SCROLL (без звука)
   // ============================================
 
-  // Get all section videos
   const sectionVideos = document.querySelectorAll('.section-block video, .media-card video');
 
-  // Track state
-  let userHasInteracted = false;
-
-  // Setup video audio control
-  function setupVideoAudioControl() {
+  function setupVideoAutoplay() {
     if (!sectionVideos.length) return;
 
-    // Initialize all videos - play muted
+    // Все видео без звука и зациклены
     sectionVideos.forEach(video => {
       video.muted = true;
-      video.volume = 0;
       video.loop = true;
-
-      // Try to autoplay on mobile
-      video.play().catch(() => {
-        // Autoplay blocked, will play on scroll
-      });
+      video.play().catch(() => {});
     });
 
-    // Observer for visibility - play/pause based on viewport
+    // Воспроизведение при видимости
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const video = entry.target;
-
-        if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-          // Video is visible - play it
+        if (entry.isIntersecting) {
           video.play().catch(() => {});
-
-          // If user enabled sound, unmute this video
-          if (userHasInteracted) {
-            // Mute all other videos
-            sectionVideos.forEach(v => {
-              if (v !== video) {
-                v.muted = true;
-                v.volume = 0;
-              }
-            });
-            // Unmute current
-            video.muted = false;
-            video.volume = 0.4;
-          }
-        } else if (entry.intersectionRatio < 0.1) {
-          // Video left viewport - pause and mute
+        } else {
           video.pause();
-          video.muted = true;
-          video.volume = 0;
         }
       });
-    }, {
-      threshold: [0, 0.1, 0.3, 0.5, 1],
-      rootMargin: '0px'
-    });
+    }, { threshold: 0.2 });
 
-    // Observe all videos
     sectionVideos.forEach(video => observer.observe(video));
-
-    // Enable audio function
-    const enableAudio = () => {
-      if (userHasInteracted) return;
-      userHasInteracted = true;
-
-      // Hide the sound banner
-      const banner = document.getElementById('soundBanner');
-      if (banner) {
-        banner.classList.add('is-hidden');
-      }
-
-      // Find visible video and unmute it
-      sectionVideos.forEach(video => {
-        const rect = video.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-        if (isVisible && rect.top < window.innerHeight / 2) {
-          video.muted = false;
-          video.volume = 0.4;
-        }
-      });
-    };
-
-    // Sound enable button click
-    const soundBtn = document.getElementById('enableSoundBtn');
-    if (soundBtn) {
-      soundBtn.addEventListener('click', enableAudio);
-    }
-
-    // Also enable on banner click
-    const banner = document.getElementById('soundBanner');
-    if (banner) {
-      banner.addEventListener('click', enableAudio);
-    }
   }
 
-  // Initialize
-  setupVideoAudioControl();
+  setupVideoAutoplay();
 })();
