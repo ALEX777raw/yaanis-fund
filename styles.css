@@ -9778,3 +9778,309 @@ body::after {
   }
 }
 
+/* ============================================
+   PREMIUM MOBILE HEADER - УЛУЧШЕННЫЙ ХЕДЕР
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Хедер - Glassmorphism эффект */
+  .header {
+    padding: 12px 16px;
+    background: transparent;
+  }
+
+  .header-inner {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+      0 8px 32px rgba(100, 130, 170, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  /* Логотип */
+  .logo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2a4a6a;
+    gap: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(145deg, #f0f4f8, #e0e8f0);
+    border: 1px solid rgba(156, 163, 175, 0.2);
+    box-shadow:
+      0 2px 8px rgba(100, 130, 170, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .logo-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: #4a6a8a;
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  /* Скрываем навигацию */
+  .nav {
+    display: none;
+  }
+
+  /* Кнопки в хедере */
+  .header-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .header-actions .btn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    border-radius: 14px;
+    font-weight: 600;
+  }
+
+  .header-actions .btn:first-child {
+    display: none; /* Скрываем кнопку "Новости" */
+  }
+
+  .header-actions .btn--primary {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    box-shadow: 0 4px 15px rgba(107, 114, 128, 0.35);
+  }
+
+  /* Бургер-меню - красивая кнопка */
+  .burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #f8fafc, #e8f0f8);
+    border: 1px solid rgba(156, 163, 175, 0.15);
+    box-shadow:
+      0 2px 8px rgba(100, 130, 170, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease;
+    z-index: 1001;
+    margin-left: 10px;
+  }
+
+  .burger:active {
+    transform: scale(0.95);
+    background: linear-gradient(145deg, #e8f0f8, #dce4ec);
+  }
+
+  .burger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #4a6a8a;
+    border-radius: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .burger span::before,
+  .burger span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #4a6a8a;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .burger span::before {
+    top: -7px;
+    width: 14px;
+  }
+
+  .burger span::after {
+    top: 7px;
+    width: 16px;
+  }
+
+  .burger.is-active span {
+    background: transparent;
+  }
+
+  .burger.is-active span::before {
+    top: 0;
+    width: 20px;
+    transform: rotate(45deg);
+    background: #374151;
+  }
+
+  .burger.is-active span::after {
+    top: 0;
+    width: 20px;
+    transform: rotate(-45deg);
+    background: #374151;
+  }
+
+  /* Мобильное меню - полноэкранный оверлей */
+  .nav.is-open {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg,
+      rgba(248, 250, 252, 0.98) 0%,
+      rgba(241, 245, 249, 0.98) 100%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    z-index: 1000;
+    animation: fadeInMenu 0.3s ease;
+  }
+
+  @keyframes fadeInMenu {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .nav.is-open .nav-link {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #374151;
+    padding: 18px 40px;
+    text-align: center;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    animation: slideInLink 0.4s ease backwards;
+  }
+
+  .nav.is-open .nav-link:nth-child(1) { animation-delay: 0.05s; }
+  .nav.is-open .nav-link:nth-child(2) { animation-delay: 0.1s; }
+  .nav.is-open .nav-link:nth-child(3) { animation-delay: 0.15s; }
+  .nav.is-open .nav-link:nth-child(4) { animation-delay: 0.2s; }
+  .nav.is-open .nav-link:nth-child(5) { animation-delay: 0.25s; }
+
+  @keyframes slideInLink {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .nav.is-open .nav-link:active {
+    background: rgba(156, 163, 175, 0.15);
+    transform: scale(0.98);
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 12px;
+  }
+
+  .header-inner {
+    padding: 10px 14px;
+    border-radius: 16px;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+    gap: 8px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .header-actions .btn--primary {
+    padding: 9px 14px;
+    font-size: 0.75rem;
+  }
+
+  .burger {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    margin-left: 8px;
+  }
+
+  .burger span {
+    width: 18px;
+  }
+
+  .burger span::before {
+    width: 12px;
+    top: -6px;
+  }
+
+  .burger span::after {
+    width: 14px;
+    top: 6px;
+  }
+
+  .nav.is-open .nav-link {
+    font-size: 1.3rem;
+    padding: 16px 30px;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 360px) {
+  .header {
+    padding: 8px 10px;
+  }
+
+  .header-inner {
+    padding: 8px 12px;
+  }
+
+  .logo {
+    font-size: 0.95rem;
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .header-actions .btn--primary {
+    padding: 8px 12px;
+    font-size: 0.7rem;
+  }
+
+  .burger {
+    width: 36px;
+    height: 36px;
+  }
+}
+
