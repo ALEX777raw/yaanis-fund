@@ -9570,7 +9570,14 @@ body::after {
   }
 
   .hero-title-wrapper--above {
-    top: 6% !important;
+    top: 20% !important;
+  }
+
+  .nav .nav-link {
+    width: 250px;
+    font-size: 1.1rem;
+    padding: 14px 25px;
+    margin: 5px 0;
   }
 
   .hero-crystal {
@@ -9824,13 +9831,18 @@ body::after {
 
   .nav .nav-link {
     display: block;
-    font-size: 1.5rem;
+    width: 280px;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #374151;
-    padding: 18px 40px;
+    padding: 16px 30px;
+    margin: 6px 0;
     text-align: center;
     border-radius: 16px;
-    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(156, 163, 175, 0.2);
+    box-shadow: 0 2px 8px rgba(100, 130, 170, 0.1);
+    transition: all 0.3s ease;
     opacity: 0;
     transform: translateX(-30px);
   }
@@ -9847,8 +9859,14 @@ body::after {
   .nav.is-active .nav-link:nth-child(5) { transition-delay: 0.25s; }
 
   .nav .nav-link:active {
-    background: rgba(156, 163, 175, 0.15);
-    transform: scale(0.98);
+    background: rgba(156, 163, 175, 0.25);
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(100, 130, 170, 0.15);
+  }
+
+  /* Заголовок ЯАНИС ниже на мобильных */
+  .hero-title-wrapper--above {
+    top: 18% !important;
   }
 
   /* Кнопки в хедере */
