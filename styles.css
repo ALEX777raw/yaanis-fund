@@ -9548,44 +9548,7 @@ body::after {
     height: 28px;
   }
 
-  /* Navigation menu */
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(232, 240, 248, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 100;
-  }
-
-  .nav.is-active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .nav-link {
-    font-size: 1.3rem;
-    padding: 12px 24px;
-  }
-
-  .header-actions {
-    display: none;
-  }
-
-  .burger {
-    display: flex;
-    z-index: 101;
-  }
+  /* Navigation menu - стили перенесены в PREMIUM MOBILE HEADER */
 
   /* Footer / Contact */
   .contact-grid {
@@ -9829,9 +9792,63 @@ body::after {
     stroke-width: 1.5;
   }
 
-  /* Скрываем навигацию */
+  /* Навигация - скрыта по умолчанию */
   .nav {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    background: linear-gradient(180deg,
+      rgba(248, 250, 252, 0.98) 0%,
+      rgba(241, 245, 249, 0.98) 100%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .nav.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav .nav-link {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #374151;
+    padding: 18px 40px;
+    text-align: center;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  .nav.is-active .nav-link {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav.is-active .nav-link:nth-child(1) { transition-delay: 0.05s; }
+  .nav.is-active .nav-link:nth-child(2) { transition-delay: 0.1s; }
+  .nav.is-active .nav-link:nth-child(3) { transition-delay: 0.15s; }
+  .nav.is-active .nav-link:nth-child(4) { transition-delay: 0.2s; }
+  .nav.is-active .nav-link:nth-child(5) { transition-delay: 0.25s; }
+
+  .nav .nav-link:active {
+    background: rgba(156, 163, 175, 0.15);
+    transform: scale(0.98);
   }
 
   /* Кнопки в хедере */
@@ -9929,71 +9946,6 @@ body::after {
     background: #374151;
   }
 
-  /* Мобильное меню - полноэкранный оверлей */
-  .nav.is-active {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg,
-      rgba(248, 250, 252, 0.98) 0%,
-      rgba(241, 245, 249, 0.98) 100%);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    z-index: 1000;
-    animation: fadeInMenu 0.3s ease;
-  }
-
-  @keyframes fadeInMenu {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .nav.is-active .nav-link {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #374151;
-    padding: 18px 40px;
-    text-align: center;
-    border-radius: 16px;
-    transition: all 0.2s ease;
-    animation: slideInLink 0.4s ease backwards;
-  }
-
-  .nav.is-active .nav-link:nth-child(1) { animation-delay: 0.05s; }
-  .nav.is-active .nav-link:nth-child(2) { animation-delay: 0.1s; }
-  .nav.is-active .nav-link:nth-child(3) { animation-delay: 0.15s; }
-  .nav.is-active .nav-link:nth-child(4) { animation-delay: 0.2s; }
-  .nav.is-active .nav-link:nth-child(5) { animation-delay: 0.25s; }
-
-  @keyframes slideInLink {
-    from {
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .nav.is-active .nav-link:active {
-    background: rgba(156, 163, 175, 0.15);
-    transform: scale(0.98);
-  }
 }
 
 /* Маленькие телефоны */
