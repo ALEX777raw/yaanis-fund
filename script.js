@@ -536,70 +536,55 @@
   const sectionVideos = document.querySelectorAll('.section-block video, .media-card video');
 
   // Track state
-  let activeVideo = null;
   let userHasInteracted = false;
-  const videoPlayedAudio = new WeakMap(); // Track if video already played audio while visible
 
   // Setup video audio control
   function setupVideoAudioControl() {
     if (!sectionVideos.length) return;
 
-    // Initialize all videos
+    // Initialize all videos - play muted
     sectionVideos.forEach(video => {
       video.muted = true;
       video.volume = 0;
-      videoPlayedAudio.set(video, false);
+      video.loop = true;
 
-      // When video ends, keep it paused (don't loop)
-      video.addEventListener('ended', () => {
-        video.pause();
+      // Try to autoplay on mobile
+      video.play().catch(() => {
+        // Autoplay blocked, will play on scroll
       });
     });
 
-    // Observer for visibility
+    // Observer for visibility - play/pause based on viewport
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const video = entry.target;
 
-        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-          // Video is now visible enough
+        if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+          // Video is visible - play it
+          video.play().catch(() => {});
 
-          // If different video than before
-          if (video !== activeVideo) {
-            // Mute previous video
-            if (activeVideo) {
-              activeVideo.muted = true;
-              activeVideo.volume = 0;
-            }
-
-            activeVideo = video;
-
-            // Reset and play from start
-            video.currentTime = 0;
-            video.play();
-
-            // Only unmute if user has interacted AND this video hasn't played audio yet
-            if (userHasInteracted && !videoPlayedAudio.get(video)) {
-              videoPlayedAudio.set(video, true);
-              video.muted = false;
-              video.volume = 0.4;
-            }
+          // If user enabled sound, unmute this video
+          if (userHasInteracted) {
+            // Mute all other videos
+            sectionVideos.forEach(v => {
+              if (v !== video) {
+                v.muted = true;
+                v.volume = 0;
+              }
+            });
+            // Unmute current
+            video.muted = false;
+            video.volume = 0.4;
           }
         } else if (entry.intersectionRatio < 0.1) {
-          // Video left viewport - reset its played status
-          videoPlayedAudio.set(video, false);
-
-          // Pause and mute
+          // Video left viewport - pause and mute
+          video.pause();
           video.muted = true;
           video.volume = 0;
-
-          if (video === activeVideo) {
-            activeVideo = null;
-          }
         }
       });
     }, {
-      threshold: [0, 0.1, 0.5, 1],
+      threshold: [0, 0.1, 0.3, 0.5, 1],
       rootMargin: '0px'
     });
 
@@ -617,14 +602,16 @@
         banner.classList.add('is-hidden');
       }
 
-      // If there's an active video that hasn't played audio yet, play it now
-      if (activeVideo && !videoPlayedAudio.get(activeVideo)) {
-        videoPlayedAudio.set(activeVideo, true);
-        activeVideo.currentTime = 0;
-        activeVideo.play();
-        activeVideo.muted = false;
-        activeVideo.volume = 0.4;
-      }
+      // Find visible video and unmute it
+      sectionVideos.forEach(video => {
+        const rect = video.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isVisible && rect.top < window.innerHeight / 2) {
+          video.muted = false;
+          video.volume = 0.4;
+        }
+      });
     };
 
     // Sound enable button click

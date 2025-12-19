@@ -8430,7 +8430,11 @@ body::after {
 }
 
 .media-card--large {
-  min-height: 450px;
+  min-height: auto;
+}
+
+.media-card--large .media-card__video {
+  aspect-ratio: 16 / 9;
 }
 
 .media-card--special {
@@ -8463,10 +8467,12 @@ body::after {
 }
 
 .media-card__video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   overflow: hidden;
-  border-radius: 16px;
 }
 
 .media-card__video video {
@@ -8474,6 +8480,11 @@ body::after {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Ensure card has proper aspect ratio */
+.media-card {
+  aspect-ratio: 16 / 9;
 }
 
 .media-card__title {
@@ -9483,30 +9494,62 @@ body::after {
     font-size: 0.95rem;
   }
 
-  /* Media cards */
+  /* Media cards - мобильная версия */
   .media-card {
     border-radius: 16px;
+    aspect-ratio: 16 / 9;
+    min-height: 200px;
   }
 
   .media-card video {
-    border-radius: 12px;
+    border-radius: 0;
   }
 
   .media-card__video {
-    aspect-ratio: 16 / 9;
-    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
   }
 
   .media-card__title {
-    font-size: 1.5rem;
-    bottom: 50px;
+    font-size: 1.3rem;
+    bottom: 40px;
     left: 16px;
+    right: 16px;
   }
 
   .media-card__subtitle {
-    font-size: 0.9rem;
-    bottom: 20px;
+    font-size: 0.85rem;
+    bottom: 16px;
     left: 16px;
+  }
+
+  .media-card__label {
+    top: 12px;
+    left: 12px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  /* Section grids на мобильных */
+  .section-block__grid--two {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .section-block__grid--reverse {
+    direction: ltr;
+  }
+
+  .section-block__info {
+    padding: 0 !important;
+  }
+
+  .section-block__heading {
+    font-size: 1.5rem !important;
   }
 
   /* Dividers */
