@@ -9342,15 +9342,408 @@ body::after {
 }
 
 /* Мобильная адаптация */
+/* ============================================
+   КАЧЕСТВЕННАЯ МОБИЛЬНАЯ АДАПТАЦИЯ
+   ============================================ */
+
+/* Планшеты */
+@media (max-width: 1024px) {
+  .info-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .platforms {
+    transform: scale(0.85);
+  }
+}
+
+/* Большие телефоны */
 @media (max-width: 768px) {
-  .orb--1 { width: 150px; height: 150px; }
-  .orb--2 { width: 100px; height: 100px; }
-  .orb--3 { width: 80px; height: 80px; }
-  .orb--4 { width: 90px; height: 90px; }
-  .orb--5 { width: 60px; height: 60px; }
+  /* Блики уменьшаем */
+  .orb--1 { width: 120px; height: 120px; }
+  .orb--2 { width: 80px; height: 80px; }
+  .orb--3 { width: 60px; height: 60px; }
+  .orb--4 { width: 70px; height: 70px; }
+  .orb--5 { width: 50px; height: 50px; }
+
+  /* Hero секция */
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero-title--small {
+    font-size: clamp(2rem, 10vw, 3.5rem) !important;
+    letter-spacing: 0.15em !important;
+  }
 
   .hero-subtitle {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
+    padding: 0 20px;
+    line-height: 1.5 !important;
+  }
+
+  .hero-title-wrapper--above {
+    top: 8% !important;
+    width: 95%;
+  }
+
+  /* Кристалл на мобильных */
+  .hero-crystal {
+    max-width: 280px !important;
+    max-height: 420px !important;
+  }
+
+  /* Платформы - скрываем на маленьких экранах */
+  .platforms {
+    display: none;
+  }
+
+  /* Info cards */
+  .info-cards-section {
+    padding: 40px 15px;
+  }
+
+  .info-cards-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .info-card {
+    border-radius: 20px;
+  }
+
+  .info-card__image {
+    aspect-ratio: 16 / 10;
+  }
+
+  .info-card__content {
+    padding: 20px;
+  }
+
+  .info-card__title {
+    font-size: 1.15rem;
+  }
+
+  .info-card__text {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  /* Sound banner */
+  .sound-enable-banner {
+    padding: 20px 10px;
+  }
+
+  .sound-enable-content {
+    padding: 24px 20px;
+    gap: 14px;
+    border-radius: 20px;
+  }
+
+  .sound-enable-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .sound-enable-text {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .sound-enable-btn {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Section blocks */
+  .section-block {
+    padding: 60px 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section-block__number {
+    font-size: 4rem;
+    top: 20px;
+    left: 15px;
+  }
+
+  .section-block__header h2 {
+    font-size: 1.6rem;
+  }
+
+  .section-block__text {
+    font-size: 0.95rem;
+  }
+
+  /* Media cards */
+  .media-card {
+    border-radius: 16px;
+  }
+
+  .media-card video {
+    border-radius: 12px;
+  }
+
+  /* Dividers */
+  .section-divider {
+    padding: 30px 0;
+  }
+
+  .divider-svg {
+    max-width: 250px;
+  }
+
+  /* Header */
+  .header {
+    padding: 10px 15px;
+  }
+
+  .header-inner {
+    padding: 0;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Navigation menu */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(232, 240, 248, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+
+  .nav.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+    padding: 12px 24px;
+  }
+
+  .header-actions {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+    z-index: 101;
+  }
+
+  /* Footer / Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  .hero-title--small {
+    font-size: clamp(1.8rem, 12vw, 2.8rem) !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem !important;
+    padding: 0 15px;
+  }
+
+  .hero-title-wrapper--above {
+    top: 6% !important;
+  }
+
+  .hero-crystal {
+    max-width: 220px !important;
+    max-height: 330px !important;
+  }
+
+  /* Info cards */
+  .info-cards-section {
+    padding: 30px 12px;
+  }
+
+  .info-cards-container {
+    gap: 14px;
+  }
+
+  .info-card__content {
+    padding: 16px;
+  }
+
+  .info-card__title {
+    font-size: 1.05rem;
+  }
+
+  .info-card__text {
+    font-size: 0.85rem;
+  }
+
+  /* Sound banner */
+  .sound-enable-content {
+    padding: 20px 16px;
+  }
+
+  .sound-enable-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .sound-enable-text {
+    font-size: 0.85rem;
+  }
+
+  .sound-enable-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Section blocks */
+  .section-block {
+    padding: 40px 0;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .section-block__number {
+    font-size: 3rem;
+  }
+
+  .section-block__header h2 {
+    font-size: 1.4rem;
+  }
+
+  /* Dividers */
+  .divider-svg {
+    max-width: 200px;
+  }
+
+  /* Loader */
+  .loader__title {
+    font-size: 2rem;
+  }
+
+  .loader__subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 360px) {
+  .hero-title--small {
+    font-size: 1.6rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem !important;
+  }
+
+  .hero-crystal {
+    max-width: 180px !important;
+    max-height: 270px !important;
+  }
+
+  .info-card__title {
+    font-size: 1rem;
+  }
+
+  .sound-enable-btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Ландшафтная ориентация на телефонах */
+@media (max-width: 900px) and (orientation: landscape) {
+  .hero {
+    min-height: 100svh;
+    padding-top: 60px;
+  }
+
+  .hero-title-wrapper--above {
+    top: 5% !important;
+  }
+
+  .hero-crystal {
+    max-width: 200px !important;
+    max-height: 300px !important;
+  }
+
+  .glowing-orbs {
+    opacity: 0.5;
+  }
+
+  .info-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Улучшения для touch устройств */
+@media (hover: none) and (pointer: coarse) {
+  .info-card:hover {
+    transform: none;
+  }
+
+  .info-card:active {
+    transform: scale(0.98);
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .btn:active {
+    transform: scale(0.95);
+  }
+
+  .nav-link:hover {
+    transform: none;
+  }
+
+  .platform:hover .platform__float {
+    transform: none;
+  }
+}
+
+/* Safe area для iPhone с notch */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .header {
+    padding-top: calc(10px + env(safe-area-inset-top));
+  }
+
+  .nav {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .section-block--contact {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
   }
 }
 
