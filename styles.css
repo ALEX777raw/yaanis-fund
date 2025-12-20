@@ -9593,6 +9593,10 @@ body::after {
     top: 20% !important;
   }
 
+  .nav {
+    padding-top: 90px;
+  }
+
   .nav .nav-link {
     width: 250px;
     font-size: 1.1rem;
@@ -9828,9 +9832,10 @@ body::after {
     bottom: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 0;
+    padding-top: 100px;
     background: linear-gradient(180deg,
       rgba(248, 250, 252, 0.98) 0%,
       rgba(241, 245, 249, 0.98) 100%);
@@ -9841,6 +9846,7 @@ body::after {
     transform: translateY(-20px);
     transition: all 0.3s ease;
     z-index: 1000;
+    overflow-y: auto;
   }
 
   .nav.is-active {
