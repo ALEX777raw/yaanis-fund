@@ -9858,38 +9858,36 @@ body::after {
     transform: translateY(0) !important;
   }
 
+  /* Скрываем nav-link на мобильных по умолчанию */
   .nav .nav-link {
+    display: none !important;
+  }
+
+  /* Показываем когда меню открыто */
+  .nav.is-active .nav-link,
+  html.nav-open .nav .nav-link {
     display: block !important;
     width: 280px !important;
-    font-size: 1.2rem !important;
+    font-size: 1.15rem !important;
     font-weight: 600 !important;
-    color: #374151 !important;
-    padding: 16px 30px !important;
-    margin: 6px 0 !important;
+    color: #1f2937 !important;
+    padding: 16px 28px !important;
+    margin: 8px 0 !important;
     text-align: center !important;
-    border-radius: 16px !important;
-    background: rgba(255, 255, 255, 0.9) !important;
-    border: 1px solid rgba(156, 163, 175, 0.3) !important;
-    box-shadow: 0 2px 8px rgba(100, 130, 170, 0.15) !important;
-    transition: all 0.3s ease !important;
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-
-  .nav.is-active .nav-link {
+    text-decoration: none !important;
+    border-radius: 14px !important;
+    background: #ffffff !important;
+    border: 2px solid #d1d5db !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1) !important;
     opacity: 1 !important;
-    transform: translateX(0) !important;
+    visibility: visible !important;
+    transform: none !important;
   }
 
-  .nav.is-active .nav-link:nth-child(1) { transition-delay: 0.05s; }
-  .nav.is-active .nav-link:nth-child(2) { transition-delay: 0.1s; }
-  .nav.is-active .nav-link:nth-child(3) { transition-delay: 0.15s; }
-  .nav.is-active .nav-link:nth-child(4) { transition-delay: 0.2s; }
-  .nav.is-active .nav-link:nth-child(5) { transition-delay: 0.25s; }
-
-  .nav .nav-link:active {
-    background: rgba(200, 210, 220, 0.5) !important;
-    transform: scale(0.97) !important;
+  .nav.is-active .nav-link:active,
+  html.nav-open .nav .nav-link:active {
+    background: #f3f4f6 !important;
+    transform: scale(0.98) !important;
   }
 
   /* Заголовок ЯАНИС ниже на мобильных */
@@ -10050,9 +10048,10 @@ body::after {
     padding-top: 90px !important;
   }
 
-  .nav .nav-link {
+  .nav.is-active .nav-link,
+  html.nav-open .nav .nav-link {
     width: 260px !important;
-    font-size: 1.1rem !important;
+    font-size: 1.05rem !important;
     padding: 14px 24px !important;
   }
 }
@@ -10090,7 +10089,8 @@ body::after {
     padding-top: 80px !important;
   }
 
-  .nav .nav-link {
+  .nav.is-active .nav-link,
+  html.nav-open .nav .nav-link {
     width: 240px !important;
     font-size: 1rem !important;
     padding: 12px 20px !important;
