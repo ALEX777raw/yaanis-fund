@@ -514,4 +514,35 @@
   }
 
   setupVideoAutoplay();
+
+  // ============================================
+  // STRUCTURE MODAL
+  // ============================================
+  const structureBtn = document.getElementById('openStructureModal');
+  const structureModal = document.getElementById('structureModal');
+
+  if (structureBtn && structureModal) {
+    const overlay = structureModal.querySelector('.modal__overlay');
+    const closeBtn = structureModal.querySelector('.modal__close');
+
+    const openModal = () => {
+      structureModal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+      structureModal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    };
+
+    structureBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && structureModal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+  }
 })();
