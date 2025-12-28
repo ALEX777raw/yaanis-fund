@@ -4921,25 +4921,6 @@ h4, h5, h6,
   height: 3px;
 }
 
-@keyframes sparkleFloat {
-  0%, 100% {
-    opacity: 0;
-    transform: translateY(0) scale(0.5) rotate(0deg);
-  }
-  10% {
-    opacity: 1;
-    transform: translateY(-20px) scale(1) rotate(45deg);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translateY(-100px) scale(0.8) rotate(180deg);
-  }
-  90% {
-    opacity: 0.3;
-    transform: translateY(-180px) scale(0.4) rotate(315deg);
-  }
-}
-
 @keyframes sparkleGlow {
   0%, 100% {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 240, 200, 0.3);
@@ -5315,21 +5296,6 @@ h4, h5, h6,
   height: 40px;
 }
 
-@keyframes orbFloat {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  50% {
-    transform: translate(-20px, -30px) scale(0.9);
-  }
-  75% {
-    transform: translate(40px, -60px) scale(1.05);
-  }
-}
-
 @keyframes orbPulse {
   0%, 100% {
     transform: scale(1);
@@ -5577,17 +5543,6 @@ h4, h5, h6,
 
 .svg-cloud-glow--large {
   inset: -50px;
-}
-
-@keyframes cloudGlowPulse {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
 }
 
 /* Cloud shine effect - DISABLED */
@@ -6298,17 +6253,6 @@ h4, h5, h6,
   opacity: 0.6;
 }
 
-@keyframes rainbowShimmer {
-  0%, 100% {
-    transform: translateX(-10%) scaleX(0.8);
-    opacity: 0.3;
-  }
-  50% {
-    transform: translateX(10%) scaleX(1.2);
-    opacity: 0.7;
-  }
-}
-
 /* Light beam effect */
 .info-sections::after {
   content: '';
@@ -6326,17 +6270,6 @@ h4, h5, h6,
   pointer-events: none;
   z-index: 0;
   animation: lightBeamSway 20s ease-in-out infinite;
-}
-
-@keyframes lightBeamSway {
-  0%, 100% {
-    transform: translateX(-50%) rotate(15deg);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateX(-30%) rotate(10deg);
-    opacity: 0.8;
-  }
 }
 
 /* Floating mini stars around clouds */
@@ -6364,17 +6297,6 @@ h4, h5, h6,
   bottom: 30%;
   right: 15%;
   animation-delay: -1.5s;
-}
-
-@keyframes starTwinkle {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.5);
-  }
 }
 
 /* Soft vignette on content wrapper */
@@ -6647,27 +6569,6 @@ main,
 /* ============================================
    VISUAL EFFECTS - Sparkles & Glow
    ============================================ */
-
-/* Floating sparkles animation */
-@keyframes sparkleFloat {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateY(-20px) scale(1.2);
-    opacity: 1;
-  }
-}
-
-@keyframes sparkleGlow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(255, 215, 100, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(255, 215, 100, 0.9), 0 0 40px rgba(255, 200, 50, 0.5);
-  }
-}
 
 /* Cloud hover glow effect */
 .svg-cloud-section:hover .svg-cloud-shape ellipse {
@@ -8469,11 +8370,6 @@ body::after {
   background: #9ca3af;
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
 }
 
 .status-badge__text {

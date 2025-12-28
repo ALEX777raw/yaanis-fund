@@ -154,52 +154,6 @@
     });
   });
 
-  // Angel cursor
-  const cursor = document.querySelector('.angel-cursor');
-  const finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-
-  if (cursor && finePointer && !reduceMotion) {
-    cursor.classList.add('is-visible');
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let currentX = mouseX;
-    let currentY = mouseY;
-    const smoothing = 0.18;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    }, { passive: true });
-
-    window.addEventListener('mousedown', () => cursor.classList.add('is-down'), { passive: true });
-    window.addEventListener('mouseup', () => cursor.classList.remove('is-down'), { passive: true });
-
-    document.addEventListener('pointerover', (e) => {
-      if (e.target.closest('a, button, .platform')) cursor.classList.add('is-hover');
-    }, { passive: true });
-
-    document.addEventListener('pointerout', (e) => {
-      const fromInteractive = e.target.closest && e.target.closest('a, button, .platform');
-      if (!fromInteractive) return;
-      const toInteractive = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('a, button, .platform');
-      if (toInteractive) return;
-      cursor.classList.remove('is-hover');
-    }, { passive: true });
-
-    function tick() {
-      currentX += (mouseX - currentX) * smoothing;
-      currentY += (mouseY - currentY) * smoothing;
-      cursor.style.left = currentX + 'px';
-      cursor.style.top = currentY + 'px';
-      requestAnimationFrame(tick);
-    }
-
-    tick();
-  } else if (cursor) {
-    cursor.remove();
-  }
-
   let pageHidden = false;
   document.addEventListener('visibilitychange', () => {
     pageHidden = document.hidden;
